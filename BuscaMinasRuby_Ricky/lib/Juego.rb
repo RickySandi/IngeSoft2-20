@@ -1,5 +1,5 @@
 class Juego
-    #Comenrario de prueba en Juego.rb ....
+    #Comenrario de prueba en Juego.rb ...
 
     def initialize
         @matriz_casillas = [
