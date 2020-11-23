@@ -242,23 +242,36 @@
     </div>
 
     <script>
+        var cantTurnos=0; 
         
         function ponerValor() {
             
             var a = document.getElementById('X').value; 
             var b = document.getElementById('Y').value;
-            pos = a+b; 
+            pos = a+b;
+
+            cantTurnos++;
+            console.log(cantTurnos);
+
+
             
             actual_value = document.getElementById(pos).innerText; 
             console.log(actual_value); 
             
             document.getElementById(pos).style.color= "black";
-            limpiarFormulario(); 
+            limpiarFormulario();
+
+            if(cantTurnos == 4){        //Debe ser ==100 porque hay 100 casillas. Cuando todas se llenan, el jugador gana. 
+                mostrarMensajeGanador();
+
+            } 
 
             if (actual_value == '*') { 
                 mostrarMensajeBomba();
             }
-            
+            if (actual_value == '-') { 
+                document.getElementById(pos).style.backgroundColor= "gray";
+            }
             
             
             return false; 
@@ -267,9 +280,13 @@
         function mostrarMensajeBomba(){
 
             alert("Bomba! Perdiste");
-            document.getElementById(pos).style.color= "red";
-            
-            
+            document.getElementById(pos).style.color= "red";    
+
+        }
+
+        function mostrarMensajeGanador(){
+
+            alert("Felicidades! Ganste");
 
         }
         function limpiarFormulario() {

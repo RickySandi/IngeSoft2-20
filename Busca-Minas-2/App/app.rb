@@ -7,6 +7,7 @@ juego = Juego.new
 get '/' do
     #@celdas_Desbloqueadas = juego.getCeldasDesbloqueadas()
     @matriz =juego.cargarMatriz()
+
     erb:tablero
 end
 
